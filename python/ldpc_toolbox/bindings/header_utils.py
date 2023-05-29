@@ -46,7 +46,7 @@ class PybindHeaderParser:
             return None
 
     def get_flags(self):
-        return f'{self.get_flag_automatic()};{self.get_flag_pygccxml()};{self.get_header_filename()};{self.get_header_file_hash()};'
+        return f'{self.get_flag_automatic()};{self.get_flag_pygccxml()};'f'{self.get_header_filename()};{self.get_header_file_hash()};'
 
 
 def argParse():

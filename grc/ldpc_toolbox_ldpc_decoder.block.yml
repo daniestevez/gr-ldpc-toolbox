@@ -1,0 +1,67 @@
+id: ldpc_toolbox_ldpc_decoder
+label: LDPC Decoder
+category: '[LDPC Toolbox]'
+
+templates:
+  imports: from gnuradio import ldpc_toolbox
+  make: ldpc_toolbox.ldpc_decoder(${alist}, ${implementation}, ${puncturing}, ${n}, ${k}, ${max_iterations})
+
+parameters:
+- id: alist
+  label: Alist File
+  dtype: file_open
+- id: implementation
+  label: Decoder Implementation
+  dtype: enum
+  options: [
+    "'Phif64'", "'Phif32'", "'Tanhf64'", "'Tanhf32'", "'Minstarapproxf64'", "'Minstarapproxf32'",
+    "'Minstarapproxi8'", "'Minstarapproxi8Jones'", "'Minstarapproxi8PartialHardLimit'",
+    "'Minstarapproxi8JonesPartialHardLimit'", "'Minstarapproxi8Deg1Clip'",
+    "'Minstarapproxi8PartialHardLimitDeg1Clip'", "'Minstarapproxi8JonesPartialHardLimitDeg1Clip'",
+    "'Aminstarf64'", "'Aminstarf32'", "'Aminstari8'", "'Aminstari8Jones'", "'Aminstari8PartialHardLimit'",
+    "'Aminstari8Deg1Clip'", "'Aminstari8JonesDeg1Clip'", "'Aminstari8PartialHardLimitDeg1Clip'",
+    "'Aminstari8JonesPartialHardLimitDeg1Clip'", "'HLPhif64'", "'HLPhif32'", "'HLTanhf64'", "'HLTanhf32'",
+    "'HLMinstarapproxf64'", "'HLMinstarapproxf32'", "'HLMinstarapproxi8'",
+    "'HLMinstarapproxi8PartialHardLimit'", "'HLAminstarf64'", "'HLAminstarf32'",
+    "'HLAminstari8'", "'HLAminstari8PartialHardLimit'"
+  ]
+  option_labels: [
+    "Phif64", "Phif32", "Tanhf64", "Tanhf32", "Minstarapproxf64", "Minstarapproxf32",
+    "Minstarapproxi8", "Minstarapproxi8Jones", "Minstarapproxi8PartialHardLimit",
+    "Minstarapproxi8JonesPartialHardLimit", "Minstarapproxi8Deg1Clip",
+    "Minstarapproxi8PartialHardLimitDeg1Clip", "Minstarapproxi8JonesPartialHardLimitDeg1Clip",
+    "Aminstarf64", "Aminstarf32", "Aminstari8", "Aminstari8Jones", "Aminstari8PartialHardLimit",
+    "Aminstari8Deg1Clip", "Aminstari8JonesDeg1Clip", "Aminstari8PartialHardLimitDeg1Clip",
+    "Aminstari8JonesPartialHardLimitDeg1Clip", "HLPhif64", "HLPhif32", "HLTanhf64", "HLTanhf32",
+    "HLMinstarapproxf64", "HLMinstarapproxf32", "HLMinstarapproxi8",
+    "HLMinstarapproxi8PartialHardLimit", "HLAminstarf64", "HLAminstarf32",
+    "HLAminstari8", "HLAminstari8PartialHardLimit"
+  ]
+- id: puncturing
+  label: Puncturing Pattern
+  dtype: string
+  default: ""
+- id: n
+  label: n
+  dtype: int
+  default: 2048
+- id: k
+  label: k
+  dtype: int
+  default: 1024
+- id: max_iterations
+  label: Maximum Iterations
+  dtype: int
+  default: 200
+
+inputs:
+- domain: stream
+  dtype: float
+  vlen: ${n}
+
+outputs:
+- domain: stream
+  dtype: byte
+  vlen: ${k}
+
+file_format: 1

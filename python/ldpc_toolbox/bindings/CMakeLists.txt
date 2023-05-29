@@ -29,7 +29,7 @@ include(GrPybind)
 ########################################################################
 
 list(APPEND ldpc_toolbox_python_files
-    python_bindings.cc)
+    ldpc_decoder_python.cc python_bindings.cc)
 
 GR_PYBIND_MAKE_OOT(ldpc_toolbox
    ../../..

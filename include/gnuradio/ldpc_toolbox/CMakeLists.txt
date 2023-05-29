@@ -11,5 +11,5 @@
 ########################################################################
 install(FILES
     api.h
-    DESTINATION include/gnuradio/ldpc_toolbox
+    ldpc_decoder.h DESTINATION include/gnuradio/ldpc_toolbox
 )

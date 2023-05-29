@@ -12,6 +12,7 @@
 include(GrPlatform) #define LIB_SUFFIX
 
 list(APPEND ldpc_toolbox_sources
+    ldpc_decoder_impl.cc
 )
 
 set(ldpc_toolbox_sources "${ldpc_toolbox_sources}" PARENT_SCOPE)
@@ -21,9 +22,10 @@ if(NOT ldpc_toolbox_sources)
 endif(NOT ldpc_toolbox_sources)
 
 add_library(gnuradio-ldpc_toolbox SHARED ${ldpc_toolbox_sources})
-target_link_libraries(gnuradio-ldpc_toolbox gnuradio::gnuradio-runtime)
+target_link_libraries(gnuradio-ldpc_toolbox gnuradio::gnuradio-runtime ldpc_toolbox)
 target_include_directories(gnuradio-ldpc_toolbox
     PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../include>
+    PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../ldpc-toolbox/include>
     PUBLIC $<INSTALL_INTERFACE:include>
   )
 set_target_properties(gnuradio-ldpc_toolbox PROPERTIES DEFINE_SYMBOL "gnuradio_ldpc_toolbox_EXPORTS")
@@ -39,6 +41,7 @@ endif(APPLE)
 ########################################################################
 include(GrMiscUtils)
 GR_LIBRARY_FOO(gnuradio-ldpc_toolbox)
+GR_LIBRARY_FOO(ldpc_toolbox)
 
 ########################################################################
 # Print summary

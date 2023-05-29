@@ -7,5 +7,5 @@
 #
 
 install(FILES
-    DESTINATION share/gnuradio/grc/blocks
+    ldpc_toolbox_ldpc_decoder.block.yml DESTINATION share/gnuradio/grc/blocks
 )

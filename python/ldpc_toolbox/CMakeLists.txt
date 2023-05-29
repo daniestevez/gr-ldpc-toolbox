@@ -39,3 +39,4 @@ add_custom_target(
   COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}
           ${PROJECT_BINARY_DIR}/test_modules/gnuradio/ldpc_toolbox/
 )
+GR_ADD_TEST(qa_ldpc_decoder ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_ldpc_decoder.py)
