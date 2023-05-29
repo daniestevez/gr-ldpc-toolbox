@@ -1,0 +1,3 @@
+[submodule "ldpc-toolbox"]
+	path = ldpc-toolbox
+	url = https://github.com/daniestevez/ldpc-toolbox
