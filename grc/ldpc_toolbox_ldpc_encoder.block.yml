@@ -1,0 +1,36 @@
+id: ldpc_toolbox_ldpc_encoder
+label: LDPC Encoder
+category: '[LDPC Toolbox]'
+
+templates:
+  imports: from gnuradio import ldpc_toolbox
+  make: ldpc_toolbox.ldpc_encoder(${alist}, ${puncturing}, ${n}, ${k})
+
+parameters:
+- id: alist
+  label: Alist File
+  dtype: file_open
+- id: puncturing
+  label: Puncturing Pattern
+  dtype: string
+  default: ""
+- id: n
+  label: n
+  dtype: int
+  default: 2048
+- id: k
+  label: k
+  dtype: int
+  default: 1024
+
+inputs:
+- domain: stream
+  dtype: byte
+  vlen: ${k}
+
+outputs:
+- domain: stream
+  dtype: byte
+  vlen: ${n}
+
+file_format: 1

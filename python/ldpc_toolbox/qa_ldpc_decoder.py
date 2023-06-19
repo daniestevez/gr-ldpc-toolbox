@@ -31,17 +31,20 @@ class qa_ldpc_decoder(gr_unittest.TestCase):
     def test_instance(self):
         datadir = pathlib.Path(__file__).parent
         instance = ldpc_decoder(
-          str(datadir / 'ar4ja_1_2_1024.alist'), 'Phif64', '1,1,1,1,0',
-          2048, 1024, 200)
+            str(datadir / 'ar4ja_1_2_1024.alist'), 'Phif64', '1,1,1,1,0',
+            2048, 1024, 200)
 
     def test_decode_codeword(self):
         n = 2048
         k = 1024
         datadir = pathlib.Path(__file__).parent
         self.decoder = ldpc_decoder(
-          str(datadir / 'ar4ja_1_2_1024.alist'), 'Phif64', '1,1,1,1,0',
-          n, k, 200)
+            str(datadir / 'ar4ja_1_2_1024.alist'), 'Phif64', '1,1,1,1,0',
+            n, k, 200)
         codeword = np.fromfile(datadir / 'ar4ja_1_2_1024_codeword', 'uint8')
+        # Enough LLR "amplitude" is required for the decoder to successfully
+        # solve the punctured symbols. We use amplitude 3 instead of amplitude
+        # 1.
         symbols = (1 - 2*codeword[:n].astype('float')) * 3.0
         self.source = blocks.vector_source_f(symbols, False, n)
         self.sink = blocks.vector_sink_b(k, 1)

@@ -40,3 +40,4 @@ add_custom_target(
           ${PROJECT_BINARY_DIR}/test_modules/gnuradio/ldpc_toolbox/
 )
 GR_ADD_TEST(qa_ldpc_decoder ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_ldpc_decoder.py)
+GR_ADD_TEST(qa_ldpc_encoder ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_ldpc_encoder.py)

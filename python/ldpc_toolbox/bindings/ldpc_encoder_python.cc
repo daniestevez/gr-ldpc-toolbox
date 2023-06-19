@@ -13,8 +13,8 @@
 /* If manual edits are made, the following tags should be modified accordingly.    */
 /* BINDTOOL_GEN_AUTOMATIC(0)                                                       */
 /* BINDTOOL_USE_PYGCCXML(0)                                                        */
-/* BINDTOOL_HEADER_FILE(ldpc_decoder.h)                                        */
-/* BINDTOOL_HEADER_FILE_HASH(3b3331bb2a300ff34727d6439066e60d)                     */
+/* BINDTOOL_HEADER_FILE(ldpc_encoder.h)                                        */
+/* BINDTOOL_HEADER_FILE_HASH(7f976e74d2e780f280f5ae29aebc4601)                     */
 /***********************************************************************************/
 
 #include <pybind11/complex.h>
@@ -23,27 +23,28 @@
 
 namespace py = pybind11;
 
-#include <gnuradio/ldpc_toolbox/ldpc_decoder.h>
+#include <gnuradio/ldpc_toolbox/ldpc_encoder.h>
 // pydoc.h is automatically generated in the build directory
-#include <ldpc_decoder_pydoc.h>
+#include <ldpc_encoder_pydoc.h>
 
-void bind_ldpc_decoder(py::module& m)
+void bind_ldpc_encoder(py::module& m)
 {
 
-    using ldpc_decoder = ::gr::ldpc_toolbox::ldpc_decoder;
+    using ldpc_encoder = ::gr::ldpc_toolbox::ldpc_encoder;
 
 
-    py::class_<ldpc_decoder, gr::block, gr::basic_block, std::shared_ptr<ldpc_decoder>>(
-        m, "ldpc_decoder", D(ldpc_decoder))
+    py::class_<ldpc_encoder,
+               gr::sync_block,
+               gr::block,
+               gr::basic_block,
+               std::shared_ptr<ldpc_encoder>>(m, "ldpc_encoder", D(ldpc_encoder))
 
-        .def(py::init(&ldpc_decoder::make),
+        .def(py::init(&ldpc_encoder::make),
              py::arg("alist"),
-             py::arg("implementation"),
              py::arg("puncturing"),
              py::arg("n"),
              py::arg("k"),
-             py::arg("max_iterations"),
-             D(ldpc_decoder, make))
+             D(ldpc_encoder, make))
 
 
         ;

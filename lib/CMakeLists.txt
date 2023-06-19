@@ -13,6 +13,7 @@ include(GrPlatform) #define LIB_SUFFIX
 
 list(APPEND ldpc_toolbox_sources
     ldpc_decoder_impl.cc
+    ldpc_encoder_impl.cc
 )
 
 set(ldpc_toolbox_sources "${ldpc_toolbox_sources}" PARENT_SCOPE)

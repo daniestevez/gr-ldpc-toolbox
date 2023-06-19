@@ -22,6 +22,7 @@ namespace py = pybind11;
 /**************************************/
 // BINDING_FUNCTION_PROTOTYPES(
 void bind_ldpc_decoder(py::module& m);
+void bind_ldpc_encoder(py::module& m);
 // ) END BINDING_FUNCTION_PROTOTYPES
 
 
@@ -51,5 +52,6 @@ PYBIND11_MODULE(ldpc_toolbox_python, m)
     /**************************************/
     // BINDING_FUNCTION_CALLS(
     bind_ldpc_decoder(m);
+    bind_ldpc_encoder(m);
     // ) END BINDING_FUNCTION_CALLS
 }

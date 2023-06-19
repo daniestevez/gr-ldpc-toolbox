@@ -27,11 +27,11 @@ public:
     typedef std::shared_ptr<ldpc_decoder> sptr;
 
     /*!
-     * \brief Creates and LDPC Decoder.
+     * \brief Creates an LDPC Decoder.
      *
      * \param alist Path to the alist file defining the LDPC code.
      * \param implementation Name of the decoder implementation to use.
-     * \param Puncturing pattern (either "" or something like "1,1,1,1,0").
+     * \param puncturing Puncturing pattern (either "" or something like "1,1,1,1,0").
      * \param n LDPC code (n,k) parameter n.
      * \param k LDPC code (n,k) parameter k.
      * \param max_iterations Maximum number of decoder iterations.
