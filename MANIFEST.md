@@ -1,17 +1,17 @@
-title: The LDPC_TOOLBOX OOT Module
-brief: Short description of gr-ldpc_toolbox
-tags: # Tags are arbitrary, but look at CGRAN what other authors are using
-  - sdr
+title: ldpc-toolbox GNU Radio blocks
+brief: GNU Radio blocks for the LDPC encoder and decoder from ldpc-toolbox
+tags:
+  - fec
+  - ldcp
+  - rust
 author:
-  - Author Name <authors@email.address>
+  - Daniel Estevez <daniel@destevez.net>
 copyright_owner:
-  - Copyright Owner 1
-license:
-gr_supported_version: # Put a comma separated list of supported GR versions here
-#repo: # Put the URL of the repository here, or leave blank for default
-#website: <module_website> # If you have a separate project website, put it here
-#icon: <icon_url> # Put a URL to a square image here that will be used as an icon on CGRAN
+  - Daniel Estevez
+license: MIT
+gr_supported_version: v3.10
+repo: https://github.com/daniestevez/gr-ldpc-toolbox
 ---
-A longer, multi-line description of gr-ldpc_toolbox.
-You may use some *basic* Markdown here.
-If left empty, it will try to find a README file instead.
+gr-ldpc-toolbox contains GNU Radio blocks for the LDPC encoder and decoder
+from the Rust library ldpc-toolbox. Many different arithmetic implementations
+for the LDPC decoder are available.
