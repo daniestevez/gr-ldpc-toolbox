@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# Copyright 2023 gr-ldpc_toolbox author.
+# Copyright 2023 Daniel Estevez <daniel@destevez.net>
 #
-# SPDX-License-Identifier: GPL-3.0-or-later
+# This file is part of gr-ldpc-toolbox
+#
+# SPDX-License-Identifier: MIT
 #
 
 import pathlib
