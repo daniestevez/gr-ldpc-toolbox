@@ -87,6 +87,8 @@ int ldpc_decoder_impl::general_work(int noutput_items,
                 0, nitems_written(0) + produced, iterations_key(), pmt::from_long(ret));
             ++produced;
             out += d_k;
+        } else {
+            d_logger->debug("decoding failed");
         }
         ++consumed;
         in += d_n;
