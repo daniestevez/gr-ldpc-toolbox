@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 Free Software Foundation, Inc.
+ * Copyright 2024 Free Software Foundation, Inc.
  *
  * This file is part of GNU Radio
  *
@@ -14,7 +14,7 @@
 /* BINDTOOL_GEN_AUTOMATIC(0)                                                       */
 /* BINDTOOL_USE_PYGCCXML(0)                                                        */
 /* BINDTOOL_HEADER_FILE(ldpc_decoder.h)                                        */
-/* BINDTOOL_HEADER_FILE_HASH(3b3331bb2a300ff34727d6439066e60d)                     */
+/* BINDTOOL_HEADER_FILE_HASH(51c6b82ae316e36324f9f6ee7b778124)                     */
 /***********************************************************************************/
 
 #include <pybind11/complex.h>
@@ -47,4 +47,7 @@ void bind_ldpc_decoder(py::module& m)
 
 
         ;
+
+
+    m.def("iterations_key", &::gr::ldpc_toolbox::iterations_key, D(iterations_key));
 }

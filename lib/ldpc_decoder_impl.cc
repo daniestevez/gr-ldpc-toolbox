@@ -17,6 +17,12 @@
 namespace gr {
 namespace ldpc_toolbox {
 
+const pmt::pmt_t iterations_key()
+{
+    static const auto key = pmt::string_to_symbol("iterations");
+    return key;
+}
+
 ldpc_decoder::sptr ldpc_decoder::make(const std::string& alist,
                                       const std::string& implementation,
                                       const std::string& puncturing,
@@ -77,6 +83,8 @@ int ldpc_decoder_impl::general_work(int noutput_items,
             d_decoder, out, d_k, in, d_n, d_max_iterations);
         if (ret >= 0) {
             // decoder success
+            add_item_tag(
+                0, nitems_written(0) + produced, iterations_key(), pmt::from_long(ret));
             ++produced;
             out += d_k;
         }

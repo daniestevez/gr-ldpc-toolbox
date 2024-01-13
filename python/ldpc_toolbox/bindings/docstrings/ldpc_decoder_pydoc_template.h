@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 Free Software Foundation, Inc.
+ * Copyright 2024 Free Software Foundation, Inc.
  *
  * This file is part of GNU Radio
  *
@@ -22,3 +22,6 @@ static const char* __doc_gr_ldpc_toolbox_ldpc_decoder_ldpc_decoder = R"doc()doc"
 
 
 static const char* __doc_gr_ldpc_toolbox_ldpc_decoder_make = R"doc()doc";
+
+
+static const char* __doc_gr_ldpc_toolbox_iterations_key = R"doc()doc";

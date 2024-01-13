@@ -16,6 +16,8 @@
 namespace gr {
 namespace ldpc_toolbox {
 
+LDPC_TOOLBOX_API const pmt::pmt_t iterations_key();
+
 /*!
  * \brief LDPC Decoder
  * \ingroup ldpc_toolbox
