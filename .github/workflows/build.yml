@@ -1,0 +1,41 @@
+name: 'gr-ldpc-toolbox'
+
+on: push
+
+jobs:
+  check-formatting:
+    name: Check C++ Formatting
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: DoozyX/clang-format-lint-action@v0.17
+      with:
+        source: '.'
+        extensions: 'h,hpp,cpp,cc,c'
+  check-python-formatting:
+    name: Check Python Formatting
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install pycodestyle with pip
+      run: pip install pycodestyle
+    - name: Run pycodestyle
+      run: pycodestyle . --exclude ./docs/doxygen,./python/ldpc_toolbox/bindings
+  make-test:
+    name: Build and Test
+    runs-on: ubuntu-latest
+    container: daniestevez/gr-oot-build:3.10.6.0
+    steps:
+    - name: Install curl
+      run: 'apt-get update && apt-get install -y curl'
+    - name: Install Rust toolchain
+      run: "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path"
+    - uses: actions/checkout@v4
+      with:
+        submodules: 'true'
+    - name: CMake
+      run: '. $HOME/.cargo/env && mkdir build && cd build && cmake .. '
+    - name: Make
+      run: '. $HOME/.cargo/env && cd build && make -j$(nproc) -k'
+    - name: Make Test
+      run: 'cd build && ctest --output-on-failure'
